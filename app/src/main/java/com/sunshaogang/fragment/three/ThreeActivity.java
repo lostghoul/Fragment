@@ -2,6 +2,8 @@ package com.sunshaogang.fragment.three;
 
 /**
  * Created by sunshaogang on 1/22/15.
+ *
+ * 管理Fragment回退栈
  */
 
 import android.app.Activity;
@@ -13,7 +15,6 @@ import android.view.Window;
 import com.sunshaogang.fragment.R;
 
 public class ThreeActivity extends Activity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

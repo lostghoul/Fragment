@@ -1,22 +1,23 @@
 /**
  * Created by sunshaogang on 1/21/15.
  */
-package com.sunshaogang.fragment.three;
+package com.sunshaogang.fragment.four;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.sunshaogang.fragment.R;
+import com.sunshaogang.fragment.three.ThreeFragmentOne;
 
-public class ThreeFragmentTwo extends Fragment implements OnClickListener {
+public class FourFragmentThree extends Fragment implements OnClickListener {
 
     private Button mBtn;
 
@@ -25,26 +26,25 @@ public class ThreeFragmentTwo extends Fragment implements OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.three_fragment, container, false);
         mBtn = (Button) view.findViewById(R.id.button);
-        mBtn.setText("button in fragment two");
+        mBtn.setText("button in fragment three");
         mBtn.setOnClickListener(this);
         return view;
     }
 
     @Override
     public void onClick(View v) {
+        Toast.makeText(getActivity(), " i am a btn in Fragment three", Toast.LENGTH_SHORT).show();
+
         FragmentManager fm = getFragmentManager();
-        Fragment fThree = fm.findFragmentByTag("THREE");
-        if (!(fThree instanceof ThreeFragmentThree)){
-            Log.e("ssg", "create a new fragment 3");
-            fThree = new ThreeFragmentThree();
-        }
+        Fragment fOne = fm.findFragmentByTag("ONE");
+//        if (!(fOne instanceof ThreeFragmentOne)){
+            fOne = new ThreeFragmentOne();
+//        }
         FragmentTransaction tx = fm.beginTransaction();
-//        tx.hide(this);
-//        tx.add(R.id.id_content, fThree, "THREE");
-		tx.replace(R.id.id_content, fThree, "THREE");
+        tx.replace(R.id.id_content, fOne, "ONE");
+
         tx.addToBackStack(null);
         tx.commit();
     }
-
 
 }

@@ -34,10 +34,10 @@ public class ThreeFragmentOne extends Fragment implements OnClickListener {
     public void onClick(View v) {
         FragmentManager fm = getFragmentManager();
         Fragment fTwo = fm.findFragmentByTag("TWO");
-//        if (!(fTwo instanceof ThreeFragmentTwo)){
-            Log.e("ssg","create a new fragment");
+        if (!(fTwo instanceof ThreeFragmentTwo)){
+            Log.e("ssg","create a new fragment 2");
             fTwo = new ThreeFragmentTwo();
-//        }
+        }
         FragmentTransaction tx = fm.beginTransaction();
         tx.replace(R.id.id_content, fTwo, "TWO");
         tx.addToBackStack(null);

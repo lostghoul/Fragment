@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -36,9 +37,10 @@ public class ThreeFragmentThree extends Fragment implements OnClickListener {
 
         FragmentManager fm = getFragmentManager();
         Fragment fOne = fm.findFragmentByTag("ONE");
-//        if (!(fOne instanceof ThreeFragmentOne)){
+        if (!(fOne instanceof ThreeFragmentOne)){
+            Log.e("ssg", "create a new fragment 1");
             fOne = new ThreeFragmentOne();
-//        }
+        }
         FragmentTransaction tx = fm.beginTransaction();
         tx.replace(R.id.id_content, fOne, "ONE");
 
